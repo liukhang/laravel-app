@@ -20,7 +20,6 @@ class SocialAccountService
             $account = new SocialAccount([
                 'provider_user_id' => $providerUser->getId(),
                 'provider' => $social,
-                'access_token' => $providerUser->token,
             ]);
             $user = User::whereEmail($email)->first();
             if (!$user) {
@@ -28,6 +27,7 @@ class SocialAccountService
                     'email' => $email,
                     'name' => $providerUser->getName(),
                     'password' => $providerUser->getName(),
+                    'access_token' => $providerUser->token,
                 ]);
             }
             $account->user()->associate($user);

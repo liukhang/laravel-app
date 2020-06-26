@@ -1,12 +1,11 @@
+Git clone https://github.com/liukhang/laravel-app.git</br>
+Composer install </br>
+cp .env.example .env </br>
+QUEUE_CONNECTION=database </br>
 
-Git clone
-Composer install
-cp .env.example .env
-QUEUE_CONNECTION=database
+Run  </br>
+    php artisan setup:development </br>
+    php artisan serve </br>
+    php artisan queue:work </br>
 
-Run 
-    php artisan setup:development
-    php artisan serve
-    php artisan queue:work
-
- Go to http://127.0.0.1:8000/
+ Go to http://127.0.0.1:8000/ </br>

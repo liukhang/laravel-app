@@ -13,7 +13,6 @@ Email: {{ $user->email ?? '' }}
                     <div class="col-md-10">
                         <input type="text" name="name" class="form-control" id="" placeholder="Input field">
                     </div>
-
                 </div>
             </div>
             <div class="box-footer">

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/load-more', 'DashboardController@loadUser')->name('load-more');
     Route::post('/user/clone-repo', 'DashboardController@repo')->name('clone-repo');
     Route::get('/listrepo', 'DashboardController@listRepo')->name('list-repo');
-    Route::post('/forkrepo', 'DashboardController@forkRepo')->name('fork-repo');;
+    Route::post('/forkrepo', 'DashboardController@forkRepo')->name('fork-repo');
 });

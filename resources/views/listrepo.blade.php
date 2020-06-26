@@ -20,24 +20,25 @@
     </div>
 </div>
 <script type="text/javascript">
-$(".click-fork").on('click', '', function() {
-    var _urlFork = $(this).prev('.form-control').val();
-    console.log(_urlFork);
-    $.ajax({
-        url: '{{route("fork-repo")}}',
-        type: 'post',
-        dataType: 'json',
-        data: {
-            url_fork: _urlFork,
-            _token: '{{csrf_token()}}'
-        },
-        success: function(response) {
-            if (response.message == 'susscess') {
-                location.reload();
-            } else {
-                alert('Fail');
+$(document).ready(function () {
+    $(".click-fork").on('click', '', function() {
+        var _urlFork = $(this).prev('.form-control').val();
+        $.ajax({
+            url: '{{route("fork-repo")}}',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                url_fork: _urlFork,
+                _token: '{{csrf_token()}}'
+            },
+            success: function(response) {
+                if (response.message == 'susscess') {
+                    setInterval('location.reload()', 3000);
+                } else {
+                    alert('Fail');
+                }
             }
-        }
+        });
     });
 });
 </script>

@@ -8,6 +8,7 @@ use GuzzleHttp\Client;
 use App\Model\SocialAccount;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -101,10 +102,11 @@ class DashboardController extends Controller
 
     public function forkRepo(Request $request)
     {
+        $user = Auth::user();
         try {
             if($request->ajax()) {
                 $repo = Repo::where('repo', $request->url_fork)->first();
-                ForkRepo::dispatch($repo)->onConnection('database');
+                ForkRepo::dispatch($repo, $user)->onConnection('database');
                 return response()->json([
                     'status'    => true,
                     'code'      => Response::HTTP_OK,
