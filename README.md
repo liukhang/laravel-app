@@ -1,5 +1,5 @@
 
-Git clone </br>
+Git clone https://github.com/liukhang/laravel-app.git</br>
 Composer install </br>
 cp .env.example .env </br>
 QUEUE_CONNECTION=database </br>
